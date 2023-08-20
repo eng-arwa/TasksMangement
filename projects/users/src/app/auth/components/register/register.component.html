@@ -1,0 +1,48 @@
+<div class="login flex justify-center items-center m-auto">
+    
+    <div class="flex">
+        <div class=" hidden sm:block">
+            
+            <img src="../../../../assets/5098293.jpg" alt="">
+        </div>
+        <div class="col-md-6">
+         <div class="h-full flex items-center justify-center w-full">
+            <div class="w-4/5">
+                <h2 class="mb-4">Register </h2>
+             
+        
+                <form [formGroup]="formRegistr">
+                    <mat-form-field appearance="outline" class="w-full">
+                        <mat-label>Username</mat-label>
+                        <input matInput  placeholder="username" formControlName="username">
+                        <mat-error>required</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-full">
+                        <mat-label>Email</mat-label>
+                        <input matInput  placeholder="email" formControlName="email">
+                        <mat-error>required</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-full">
+                        <mat-label >Password</mat-label>
+                        <input matInput f placeholder="password" formControlName="password">
+                        <mat-error>required</mat-error>
+        
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-full">
+                        <mat-label>Confirm Password</mat-label>
+                        <input matInput   placeholder="confirm password" formControlName="confirmpassword">
+                        <mat-hint *ngIf="formRegistr.hasError('nomatched')">no matched</mat-hint>
+                    </mat-form-field>
+                </form>
+                <div class="flex justify-center">
+                    <button mat-raised-button class="bg-orange" [disabled]="formRegistr.invalid" (click)="createaccount()">Create Account</button>
+                </div>
+                <div class="flex justify-center mt-4">
+                    <a routerLink="/auth/login">Have an Account ? </a>
+                </div>
+            </div>
+         </div>
+        </div>
+    </div>
+ 
+</div>

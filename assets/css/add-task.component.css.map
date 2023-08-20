@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,EAAE,AAAC,CACC,WAAW,CAAE,IAAI,CACpB,AAED,AAAA,QAAQ,AAAC,CACL,SAAS,CAAE,IAAI,CACf,SAAS,CAAE,IAAI,CACf,UAAU,CAAE,KAAK,CACjB,UAAU,CAAE,KAAK,CACpB",
+    "sources": [
+        "../../projects/admin/src/app/layout/tasks-admin/components/add-task/add-task.component.scss"
+    ],
+    "names": [],
+    "file": "add-task.component.css"
+}

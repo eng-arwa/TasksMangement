@@ -1,0 +1,39 @@
+<div class="login flex justify-center items-center m-auto">
+    
+    <div class="grid sm:grid-cols-2 p-4">
+        <div class="hidden w-full p-0 sm:block ">
+            <div class=""></div>
+            <img src="../../../../assets/5098293.jpg" alt="">
+        </div>
+        <div class="w-full bg-white">
+         <div class="h-full w-full flex items-center justify-center ">
+            <div class="sm:w-9/12  w-full">
+                <h2 class="mb-4">Login </h2>
+             
+        
+                <form [formGroup]="formlogin">
+                    <mat-form-field appearance="outline" class="w-full">
+                        <mat-label>Email</mat-label>
+                        <input matInput formControlName="email"   placeholder="email">
+                        <mat-error>required</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-full">
+                        <mat-label>Password</mat-label>
+                        <input matInput formControlName="password" placeholder="password">
+                        <mat-error>required</mat-error>
+        
+                    </mat-form-field>
+                </form>
+                <div class="flex justify-center">
+                    <button   mat-raised-button (click)="login()" >Login</button>
+                </div>
+                <div class="flex justify-center mt-4">
+                    <a routerLink="/auth/register">Have no't Account ? </a>
+                </div>
+            </div>
+         
+         </div>
+        </div>
+    </div>
+ 
+</div>

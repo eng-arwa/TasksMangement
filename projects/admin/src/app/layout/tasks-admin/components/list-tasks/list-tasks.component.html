@@ -1,0 +1,103 @@
+
+<div >
+
+    <div class="flex mt-4 justify-end">
+        <button mat-raised-button  class="bg-orange" (click)="addTask()">Add Task</button>
+    </div>
+
+    <form >
+        <div class="flex justify-center gap-4  flex-wrap mt-4">
+                <div class="w-full ">
+                    <mat-form-field appearance="outline" class="w-full">
+                        <mat-label>Search</mat-label>
+                        <input matInput (keyup)="search($event.target)"  placeholder="title search">
+                    </mat-form-field>
+                </div>  
+                <div class="w-full sm:w-auto">
+                    
+                    <mat-form-field appearance="outline" class="w-full">
+                        <mat-label>By User</mat-label>
+                        <mat-select (selectionChange)="filterByuser($event)">
+                            <mat-option *ngFor="let user of users" [value]="user?.id">
+                              {{user?.name}}
+                            </mat-option>
+                          </mat-select>
+                    </mat-form-field>
+                </div>  
+                <div class="w-full sm:w-auto">
+                    <mat-form-field appearance="outline" class="w-full">
+                        <mat-label>Status</mat-label>
+                        <mat-select (selectionChange)="filterBystatus($event)">
+                            <mat-option *ngFor="let item of status" [value]="item?.name">
+                              {{item?.name}}
+                            </mat-option>
+                          </mat-select>
+                    </mat-form-field>
+                </div>  
+                <div class="w-full sm:w-auto">
+                    <mat-form-field appearance="outline" class="w-full">
+                        <mat-label>Enter a date range</mat-label>
+                        <mat-date-range-input [rangePicker]="picker">
+                          <input matStarmat-cellate placeholder="Start date" (dateChange)="filterBydata($event,'fromDate')">
+                          <input matEndDate placeholder="End date" (dateChange)="filterBydata($event,'toDate')">
+                        </mat-date-range-input>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-date-range-picker #picker></mat-date-range-picker>
+                    </mat-form-field>
+                </div>  
+        </div>
+    </form>
+    <div class=" mt-4 mb-4  xample-container mat-elevation-z8">
+        <mat-table  [dataSource]="dataSource" matSort>
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="position">
+              <mat-header-cell  *matHeaderCellDef class="bg-off-white"> No. </mat-header-cell>
+              <mat-cell *matCellDef="let element;let index = index"  data-label="No"> {{index + 1}} </mat-cell>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="title">
+              <mat-header-cell  *matHeaderCellDef> Title </mat-header-cell>
+              <mat-cell  *matCellDef="let element"  data-label="Title"> {{element.title}} </mat-cell>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="user">
+              <mat-header-cell *matHeaderCellDef> User </mat-header-cell>
+              <mat-cell *matCellDef="let element"  data-label="User"> {{element.user}} </mat-cell>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="deadline">
+                <mat-header-cell *matHeaderCellDef> DeadLine Date </mat-header-cell>
+                <mat-cell  *matCellDef="let element"  data-label="DeadLine Date"> {{element.deadline}} </mat-cell>
+              </ng-container>
+            <ng-container matColumnDef="status">
+                <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+                <mat-cell  *matCellDef="let element"  data-label="Status"> {{element.status}} </mat-cell>
+              </ng-container>
+
+            <ng-container matColumnDef="actions" >
+                <mat-header-cell  *matHeaderCellDef class="w-20">Action  </mat-header-cell>
+                <mat-cell  *matCellDef="let element"  data-label="Action ">   
+                    <button class="btn btn-warning" mat-raised-button (click)="updatTask(element)">Update</button>
+                    <button  mat-raised-button color="warn" (click)="deletetask(element._id)">Delete</button>
+                </mat-cell>
+              </ng-container>
+              
+          
+            <mat-header-row class="hidden lg:flex"  *matHeaderRowDef="displayedColumns "></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns | paginate: { id: 'tasks',
+                                                      itemsPerPage: 5,
+                                                      currentPage: page,
+                                                      totalItems: total }"
+            ></mat-row>
+            
+          </mat-table>
+          <div class="flex mt-4 justify-center items-center bg-white">
+            <pagination-controls class="my-pagination" (pageChange)="changepage($event)" id="tasks"></pagination-controls>
+          </div>
+          
+    </div>
+</div>

@@ -1,0 +1,14 @@
+.bg-orange{
+    background: #fe735c !important;
+    color: white !important;
+}
+
+.my-pagination ::ng-deep {
+    background-color: white;
+    width: 100%;
+    text-align: center;
+    padding-top: 2.5rem;
+.ngx-pagination .current {
+    background: #fe735c;
+    border-radius: 5px;
+  }}

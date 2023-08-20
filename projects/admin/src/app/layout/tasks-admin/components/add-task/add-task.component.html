@@ -1,0 +1,63 @@
+
+<div class="p-4">
+    <header class="flex justify-between items-center" >
+        <h1 class="m-0 text-orange">Add New Task</h1>
+        <button mat-flat-button matDialogClose class="text-danger">
+          <mat-icon>close</mat-icon>
+        </button>
+      </header>
+    <form [formGroup]="newtaskform">
+        <div class="flex flex-wrap justify-between mt-3">
+                <div class="w-full">
+                    <mat-form-field appearance="outline" class="w-full">
+                        <mat-label>Title</mat-label>
+                        <input matInput   placeholder="title" formControlName="title">
+                    </mat-form-field>
+                </div>  
+                <div class="w-full">
+                    <mat-form-field appearance="outline" class="w-full">
+                        <mat-label>User</mat-label>
+                        <mat-select formControlName="userId">
+                            <mat-option *ngFor="let user of users" [value]="user?.id">
+                              {{user?.name}}
+                            </mat-option>
+                          </mat-select>
+                    </mat-form-field>
+                </div> 
+                <div class="w-full mt-4 mb-4">
+                    <a mat-raised-button  >
+                        <label for="image" class="text-orange">Choose Image</label>
+                    </a>
+                    
+                    <input type="file" name="selectedImage" id="image" class="hidden" (change)="selectImage($event)">
+                    <span>{{filename}}</span>
+                </div>
+                <div class="w-full">
+                    <mat-form-field appearance="outline" class="w-full">
+                        <mat-label>Deadline Date</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="deadline" >
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>  
+
+                <div class="w-full">
+                    <mat-form-field appearance="outline" class="w-full">
+                        <mat-label>Description</mat-label>
+                        <textarea matInput  placeholder="task description ...." formControlName="description"></textarea>
+                    </mat-form-field>
+                    
+                </div>
+        </div>
+    </form>
+
+    <footer class="tw-p-6">
+        <div class="flex justify-center items-center">
+            <button *ngIf="!datatask" mat-raised-button class="mx-4 text-orange" color="primary" [disabled]="newtaskform.invalid" (click)="createtask()">Create</button>
+            <button *ngIf="datatask" mat-raised-button class="mx-4 text-orange" color="primary" [disabled]="newtaskform.invalid" (click)="updatetask()">update</button>
+         
+            <button  mat-raised-button (click)="closedialog()">Close</button>
+          </div>
+        
+      </footer>
+</div>

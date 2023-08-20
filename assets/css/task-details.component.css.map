@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,SAAS,AAAC,CACN,MAAM,CAAE,KAAK,CAKhB,AAND,AAEI,SAFK,CAEL,GAAG,AAAC,CACJ,MAAM,CAAE,KAAK,CAEZ",
+    "sources": [
+        "../../projects/users/src/app/tasks/components/task-details/task-details.component.scss"
+    ],
+    "names": [],
+    "file": "task-details.component.css"
+}

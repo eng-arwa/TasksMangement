@@ -1,0 +1,23 @@
+:host ::ng-deep {
+    table {
+        thead {
+            background-color: #fafafa !important;
+            .mat-header-cell {
+                color: #FFF;
+            }
+        }
+    }
+}
+
+.w-20 {
+    width: 20%!important;
+}
+.my-pagination ::ng-deep {
+    background-color: white;
+    width: 100%;
+    text-align: center;
+    padding-top: 2.5rem;
+.ngx-pagination .current {
+    background: #fe735c;
+    border-radius: 5px;
+  }}

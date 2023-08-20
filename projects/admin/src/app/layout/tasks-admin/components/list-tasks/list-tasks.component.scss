@@ -1,0 +1,119 @@
+button {
+    color: #FFF;
+    margin: 0 5px;
+    &.addTask {
+        background-color: #ca085a;
+        color: #FFF;
+        padding: 2px 23px;
+        font-size: 20px;
+    }
+}
+
+.listBox{
+}
+
+:host ::ng-deep {
+    .mdc-notched-outline{
+            background: white;
+        }
+       
+    
+
+    mat-table {
+        box-shadow: none;
+        background: white;
+       
+        mat-header-row {
+            background-color: #fafafa !important;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            .mat-header-cell {
+                color: #FFF;
+            }
+
+            tr,td{
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+
+.bg-orange{
+    background: #fe735c !important;
+    color: white !important;
+}
+
+.my-pagination ::ng-deep {
+    background-color: white;
+    width: 100%;
+    text-align: center;
+    padding-top: 2.5rem;
+.ngx-pagination .current {
+    background: #fe735c;
+    border-radius: 5px;
+  }}
+
+
+
+  @media screen and (max-width: 1024px) {
+   
+    mat-table {
+      border: 0;
+      vertical-align: middle
+    }
+  
+    mat-table caption {
+      font-size: 1em;
+    }
+    
+    /*  Enable this to hide header
+    .mat-table .mat-header-cell {
+      
+      border: 10px solid;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    */
+    mat-table mat-row {
+      border-bottom: 5px solid #ddd;
+      display: block;
+    }
+    /*
+    .mat-table .mat-row:nth-child(even) {background: #CCC}
+    .mat-table .mat-row:nth-child(odd) {background: #FFF}
+    */
+    mat-table mat-cell {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      text-align: right;
+      
+      height:30px;
+      margin-bottom: 4%;
+    }
+   mat-cell::before {
+      /*
+      * aria-label has no advantage, it won't be read inside a table
+      content: attr(aria-label);
+      */
+      content: attr(data-label);
+      float: left;
+      font-size: 1em;
+      color: black;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-weight: normal;
+      
+      font-size: .85em;
+    }
+    mat-table mat-cell:last-child {
+      border-bottom: 0;
+    }
+      mat-table mat-cell:first-child {
+      margin-top: 4%;
+    }}
+  
